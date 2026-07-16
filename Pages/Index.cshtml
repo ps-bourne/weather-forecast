@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+<div class="my-3 p-3 bg-body rounded shadow-sm"> 
+    <h6 class="border-bottom pb-2 mb-0">Cities Weather</h6> 
+    @foreach (var item in Model.CityWeathers)
+    {
+        <div class="d-flex text-body-secondary pt-3"> 
+            <svg aria-label="Placeholder: 32x32" class="bd-placeholder-img flex-shrink-0 me-2 rounded" height="32" preserveAspectRatio="xMidYMid slice" role="img" width="32" xmlns="http://www.w3.org/2000/svg">
+                <title>-</title>
+                <rect width="100%" height="100%" fill="#007bff"></rect>
+                <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+            </svg> 
+            <div class="pb-3 mb-0 small lh-sm border-bottom w-100"> 
+                <div class="d-flex justify-content-between"> 
+                    <strong class="text-gray-dark">@item.City</strong> 
+                    <a href="#">@item.ForcastDateTime?.ToShortDateString()</a> 
+                </div> 
+                <span class="d-block">@item.TemperatureCelcius?.ToString("F1") °C</span> 
+            </div> 
+        </div> 
+    }
+    <small class="d-block text-end mt-3"> <a href="#">All suggestions</a> </small> 
+</div>
